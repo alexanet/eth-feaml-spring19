@@ -3,7 +3,7 @@
 \usetheme{Penn} 
 
 \logo{}
-
+\newcommand{\TODO}[1]{{\color{red}#1}}
 
 \usepackage{epsfig, amsfonts, amsbsy, amsmath}
 \usepackage{color}
@@ -13,13 +13,14 @@
 \usepackage{float}
 \usepackage{color}
 \usepackage{graphicx} 
+\usepackage{xspace} 
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{url}
 \usepackage{natbib}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-
+\usepackage{multirow}
 
 \input{beamercolorthemepenn.sty}
  \setbeamercovered{invisible}
@@ -46,27 +47,136 @@
 \end{center}
 \titlepage}
 
-\begin{frame}{Title}
+\begin{frame}{Why combine human and machine decisions?}
 \begin{itemize}
-\item Sample text
+	\setlength\itemsep{1em}
+	\item Decision problems that need human involvement
+	\begin{itemize}
+	\item jail-or-release
+	\item stop-and-frisk
+	\item accept-or-reject (e.g., academics, credits, etc.	
+	\end{itemize}
+	\item Human decision makers can profit from Machine decisions
+		\begin{itemize}
+		\item reduce the workload
+		\item increase accuracy
+	\end{itemize}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Sample Image}
+\begin{frame}{Human and machine decisions}
 \begin{itemize}
-\item All figures must be places in the ``Figures" folder.
+	\item How do we combine human and machine decisions?
+	\item How are humans influenced by machine predictions? 
 \end{itemize}
+\centering
+\includegraphics[width=0.5\textwidth]{Figures/problem_statement.pdf}
+
+\end{frame}
+
+\begin{frame}{Default Pattern}
+\begin{itemize}
+\setlength\itemsep{5pt}%
+
+\item + Human remains the upper hand and makes the final decision
+\item + Clear responsibility
+
+\item -- What about fairness?
+\item -- How is the human influenced by the machine prediction?
+\item \TODO{change title add reference}
+\end{itemize}
+
 \begin{figure}[t!]
     \centering
-        \includegraphics[width=0.5\textwidth]{Figures/media_negative.pdf}
+        \includegraphics[width=0.8\textwidth]{Figures/human_decision.pdf}
 \end{figure}
 \end{frame}
 
 
+\begin{frame}{Paper 3}
+\end{frame}
+
+\begin{frame}{Paper 3}
+\end{frame}
+
+
+\begin{frame}{Paper 3}
+\end{frame}
+
+
+\begin{frame}{Paper 3}
+\end{frame}
+
+
+\begin{frame}{Alternative pattern: Learn to defect}
+
+\begin{figure}[t!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Figures/defect.pdf}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Paper 1}
+\end{frame}
+
+\begin{frame}{Paper 1}
+\end{frame}
+
+
+\begin{frame}{Paper 1}
+\end{frame}
+
+
+\begin{frame}{Paper 1}
+\end{frame}
+
+
+\begin{frame}{Alternative pattern: Problem matching}
+	\centering
+\includegraphics[width=0.8\textwidth]{Figures/matching.pdf}
+\end{frame}
+
+
+\begin{frame}{Paper 2}
+\end{frame}
+
+\begin{frame}{Paper 2}
+\end{frame}
+
+
+\begin{frame}{Paper 2}
+\end{frame}
+
+
+\begin{frame}{Paper 2}
+\end{frame}
+
+\begin{frame}{Conclusion}
+\begin{table}[]
+	\begin{tabular}{cl}
+		\multirow{3}{*}{\includegraphics[width=0.4\textwidth]{Figures/human_decision.pdf}}&   + Benefit 1 		 \\
+		& + Benefit 2\\
+		& -- Disadvantage 1\\ 
+		&\\
+		\hline
+		&\\
+		\multirow{3}{*}{\includegraphics[width=0.4\textwidth]{Figures/defect.pdf}}&   	+ Text			\\
+		& -- Lorem \\
+		& -- Ipso \\
+		&\\
+		\hline
+		&\\
+		\multirow{3}{*}{\includegraphics[width=0.4\textwidth]{Figures/matching.pdf}}&   + Dolor				\\
+		& + More \\
+		& -- Text \\
+	\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{Other patterns worth mentioning}
+\end{frame}
+
 \begin{frame}{References}
-\begin{itemize}
-\item All relevant resources (articles, softwares, etc.) must be listed at the end of the presentation.
-\end{itemize}
 \end{frame}
 
 \end{document}
