@@ -11,8 +11,10 @@
 \usepackage{amssymb}
 \usepackage{scrextend}
 \usepackage{float}
+ \usepackage{booktabs}
 \usepackage{color}
 \usepackage{graphicx} 
+\usepackage{cleveref}
 \usepackage{xspace} 
 \usepackage{caption}
 \usepackage{subcaption}
@@ -74,7 +76,7 @@
 
 \end{frame}
 
-\begin{frame}{Default Pattern}
+\begin{frame}{Algorithmic Risk Assessment}
 \begin{itemize}
 \setlength\itemsep{5pt}%
 
@@ -83,7 +85,6 @@
 
 \item -- What about fairness?
 \item -- How is the human influenced by the machine prediction?
-\item \TODO{change title add reference}
 \end{itemize}
 
 \begin{figure}[t!]
@@ -93,28 +94,140 @@
 \end{frame}
 
 
-\begin{frame}{Paper 3}
+\begin{frame}{How are Humans Influenced by Algorithmic Risk Prediction?}
+\begin{itemize}
+	\item Experiment on 500 pre-trial cases with known ground truth $y$
+	\item Treatment group w/ algorithmic assessment ($N=6250$)
+	\item Control group w/o algorithmic assessment ($N=7600$)
+	\item Entry and exit survey 
+\end{itemize}
+\begin{figure}[t!]
+	\centering
+	\footnotesize
+	\includegraphics[width=0.7\textwidth]{Figures/experimentscreen.png}
+	\caption{Amazon Turk experiment by \cite{green2019disparate}}
+\end{figure}
 \end{frame}
 
-\begin{frame}{Paper 3}
+\begin{frame}{Hypothesis}
+\begin{itemize}
+	\item \textbf{H1 (Performance): }Participants presented with a
+	risk assessment will make predictions that are less accurate
+	than the risk assessment’s.
+	\item \textbf{H2 (Evaluation): }Participants will be unable to accurately evaluate their own and the algorithm’s performance.
+	\item \textbf{H3 (Bias): }As they interact with the risk assessment, participants will be disproportionately likely to increase risk predictions about black defendants and to decrease risk predictions about white defendants.
+\end{itemize}
 \end{frame}
 
 
-\begin{frame}{Paper 3}
+\begin{frame}{Evaluation}
+\begin{itemize}
+	\item Reward: $r = [1-(\text{prediction}-\text{outcome})^2]$\\
+	\item Risk-score influence on defendant $j$: $$I_j = \frac{t_j - c_j}{r_j - c_j}$$
+	\item Influence of risk assessment on participant $k$ is: $$I^k = \frac{1}{25}\sum^{25}_{i=1}\frac{p_i^k -c_i}{r_i-c_i}$$
+\end{itemize}
+{\footnotesize
+$r_j \ldots$ prediction made by risk assessment 
+
+$t_j \ldots$ avg. prediction of treatment group on defendant $j$ 
+
+$c_j \ldots$ avg. prediction of control group on defendant $j$ 
+
+$p_i^k \ldots$ prediction of participant $k$ on defendant $j$ 
+
+
+}
+
 \end{frame}
 
 
-\begin{frame}{Paper 3}
+\begin{frame}{Performance under Risk Assessment}
+\begin{table}[]
+	\begin{tabular}{@{}lll}
+		\toprule
+		& \textbf{Control} & \textbf{Treatment} \\ \midrule
+		Average reward      & 0,756            & 0,786               \\ \midrule
+		False positive rate & 17.7\%           & 14.8\%              \\ \bottomrule
+	\end{tabular}
+\end{table}
+\begin{itemize}
+	\item Participants in the treatment group earned a 4.0\% larger average
+	reward and a 16.4\% lower false positive rate than participants in the
+	control group (both with $p < 10^{-5}$)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Performance under Risk Assessment}
+\begin{table}[]
+	\begin{tabular}{@{}llll}
+		\toprule
+		& \textbf{Control} & \textbf{Treatment} &\textbf{Risk assessment} \\ \midrule
+		Average reward      & 0,756            & 0,786 & 0.807               \\ \midrule
+		False positive rate & 17.7\%           & 14.8\% & 10.1\%             \\ \bottomrule
+	\end{tabular}
+\end{table}
+\begin{itemize}
+	\item  Despite being presented with the risk assessment’s predictions, the treatment group achieved
+	a 2.6\% lower average reward and a 46.5\% higher false positive rate
+	than the risk assessment (both with $p < 10^{-8}$)
+	\item  Only 23.7\% of participants in the treatment group earned a higher average reward than
+	the risk assessment over the course of their trial
+\end{itemize}
 \end{frame}
 
 
-\begin{frame}{Alternative pattern: Learn to defect}
+\begin{frame}{Self Evaluation of Participants}
+\begin{itemize}
+	%\item Exit survey (confidence, accuracy of assessment, influence, fairness)
+	\item The more confidence participants expressed in their predictions, the less well they actually performed ($p=0.0186$)
+	\item No significant relationship between the participant's evaluation of the risk assessments accuracy and actual performance
+	\item No significant relationship between actual and perceived fairness
+	\item Participants could generally discern how strongly they were influenced by the risk assessment
+\end{itemize}
+\end{frame}
 
+\begin{frame}{Influence of risk scores on defendants}
+\begin{itemize}
+\item When risk score was lower than the average prediction in control group ($r < c$):
+\begin{itemize}
+	\item Risk assessment's influence similar regardless of the race
+\end{itemize}
+\vspace{2pt}
+\item When risk score was higher than the average prediction in control group ($r > c$):
+\begin{itemize}
+	\item 25.9\% stronger average influence on predictions about black defendants than on predictions about white defendants
+	\item Risk assessment leads to larger increase in risk for black defendants
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Influence of risk scores on defendants}
+\begin{figure}[t!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{Figures/influence_of_risk_score.png}
+\end{figure}
+\end{frame}
+
+
+
+\begin{frame}{Limitations and Discussion}
+\begin{itemize}
+	\item Amazon Turk and no actual judges
+	\item Only textual description, no face-to-face
+	
+	\item \TODO{todo}
+	\item \TODO{todo}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{An alternative pattern: Learn to defect}
 \begin{figure}[t!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{Figures/defect.pdf}
 \end{figure}
 \end{frame}
+
 
 \begin{frame}{Paper 1}
 \end{frame}
@@ -177,6 +290,8 @@
 \end{frame}
 
 \begin{frame}{References}
+\bibliography{Slides}
+\bibliographystyle{apalike}
 \end{frame}
 
 \end{document}
